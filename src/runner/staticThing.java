@@ -17,6 +17,22 @@ public class staticThing {
         sprite.setY(posy);
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
     public ImageView getImageView() {
         return sprite;
     }

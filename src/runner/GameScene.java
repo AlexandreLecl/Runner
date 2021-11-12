@@ -38,11 +38,19 @@ public class GameScene extends Scene {
         pane.getChildren().add(heart.getImageView());
     }
 
+
+
+    public void update(long time){
+        left.setX(left.getX()+);
+    }
+
+
     AnimationTimer timer = new AnimationTimer() {
+        @Override
         public void handle(long time) {
-            //hero.update(time);
-            //camera.update(time);
-            //gameScene.update(time);
+            hero.update(time);
+            camera.update(time);
+            gameScene.update(time);
             System.out.println(time);
         }
     };
