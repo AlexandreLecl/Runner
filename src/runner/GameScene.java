@@ -41,7 +41,17 @@ public class GameScene extends Scene {
 
 
     public void update(long time){
-        left.setX(left.getX()+);
+        int k=0;
+        if (k<=450){
+            k+=50;
+            left.setX(500-k);
+            right.setX(right.getX()+50);
+        }else{
+            k=0;
+            left.setX(500);
+            right.setX(0);
+        }
+
     }
 
 
@@ -49,9 +59,8 @@ public class GameScene extends Scene {
         @Override
         public void handle(long time) {
             hero.update(time);
-            camera.update(time);
-            gameScene.update(time);
-            System.out.println(time);
+            //camera.update(time);
+            update(time);
         }
     };
 

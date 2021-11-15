@@ -5,28 +5,31 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class AnimatedThing {
-    private double x;
-    private double y;
-    private ImageView sprite;
-    private int attitude;
-    private int index=1;
-    private int duration;
-    private int maxIndex;
-    private double w;
-    private double h;
-    private double offsetx;
-    private double offsety;
+    protected double x;
+    protected double y;
+    protected ImageView sprite;
+    protected int attitude;
+    protected int index=1;
+    protected int duration;
+    protected int maxIndex;
+    protected double w;
+    protected double h;
+    protected double offsetx;
+    protected double offsety;
 
 
     public AnimatedThing(double x,double y,int attitude,int duration,int index,int maxIndex,double w,double h,double offsetx,double offsety,String fileName){
-        if (index>=maxIndex){
-            index=0;
-        }
             Image spriteSheet = new Image(fileName);
             sprite = new ImageView(spriteSheet);
             sprite.setViewport(new Rectangle2D(index*offsetx,attitude*offsety,w,h));
             sprite.setX(x);
             sprite.setY(y);
+            this.maxIndex=maxIndex;
+            this.duration=duration;
+            this.offsetx=offsetx;
+            this.offsety=offsety;
+            this.w=w;
+            this.h=h;
     }
 
     public double getX() {
