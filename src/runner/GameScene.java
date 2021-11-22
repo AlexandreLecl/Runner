@@ -3,6 +3,7 @@ package runner;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.geometry.Rectangle2D;
 
 public class GameScene extends Scene {
     private Camera camera;
@@ -22,8 +23,8 @@ public class GameScene extends Scene {
     }
 
     public void background(){
-         left=new staticThing(0,0,500,0,300,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
-         right=new staticThing(300,0,0,0,300,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
+         left=new staticThing(0,0,0,0,800,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
+         right=new staticThing(800,0,0,0,800,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
     }
     public void placeHero(){
         hero=new Hero();
@@ -42,19 +43,10 @@ public class GameScene extends Scene {
 
 
     public void update(long time){
-        if (updateCounter>=300){
-            updateCounter=0;
-        }else{
-            updateCounter+=10;
-        }
-        //left.setX(500+updateCounter);
-        //left.setW(300-updateCounter);
-        left.getImageView().setX(0-updateCounter);
-        //right.setW(300+updateCounter);
-        right.getImageView().setX(300-updateCounter);
-
-        //left.getImageView().setViewport(new Rectangle2D(left.getX(), left.getY(), left.getW(),left.getH()));
-        //right.getImageView().setViewport(new Rectangle2D(right.getX(), right.getY(), right.getW(),right.getH()));
+        updateCounter=(updateCounter+10)%800;
+        left.getImageView().setViewport(new Rectangle2D(updateCounter, 0,800-updateCounter,400));
+        right.getImageView().setViewport(new Rectangle2D(right.getX(), 0, updateCounter,400));
+        right.getImageView().setX(800-updateCounter);
     }
 
 
