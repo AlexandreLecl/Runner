@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.geometry.Rectangle2D;
 
 public class GameScene extends Scene {
-    private Camera camera;
+    private Camera camera=new Camera(300,300);
     private staticThing right;
     private staticThing left;
     private Hero hero;
@@ -54,7 +54,7 @@ public class GameScene extends Scene {
         @Override
         public void handle(long time) {
             hero.update(time);
-            //camera.update(time);
+            camera.update(time,hero.getX());
             update(time);
         }
     };
