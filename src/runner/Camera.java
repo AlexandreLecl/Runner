@@ -7,7 +7,7 @@ public class Camera {
     private double fm=1.2;
     private double vx=0;
     private double ax=-300;
-    private long past=0;
+    private long past=50;
 
     public Camera(double x,double y){
         this.x=x;
@@ -17,20 +17,27 @@ public class Camera {
     public double getX() {
         return x;
     }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
     public double getY() {
         return y;
     }
 
+    public void setY(double y) {
+        this.y = y;
+    }
+
     public void update(long now,double xhero){
         long dt=now-past;
-        ax=km*(xhero-x)+fm*vx;
+        ax=km*(xhero-x)-fm*vx;
         double dvx=ax*dt;
         double dx=vx*dt;
         x+=dx;
         vx+=dvx;
         past=now;
-        System.out.println(x);
-        System.out.println(vx);
     }
 
     @Override
