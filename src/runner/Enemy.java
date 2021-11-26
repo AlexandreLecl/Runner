@@ -7,7 +7,7 @@ public class Enemy extends AnimatedThing{
     private double wait;
 
     public Enemy() {
-        super(200, 250, "run", 33, 0, 5, 50, 50, 5, 0, "file:Hyena_walk.png");
+        super(500, 290, "run", 33, 1, 2, 30, 50, 48, 0, "file:Ghost_Sprites.png");
     }
 
     public void update(long time){
@@ -19,7 +19,7 @@ public class Enemy extends AnimatedThing{
                 index++;
             }
             past=time;
-            sprite.setViewport(new Rectangle2D(index*offsetx,0,w,h));
+            this.sprite.setViewport(new Rectangle2D(290+index*offsetx,0,w,h));
         }
     }
 }
