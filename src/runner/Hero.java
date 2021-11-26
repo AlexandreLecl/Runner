@@ -6,7 +6,7 @@ public class Hero extends AnimatedThing{
     long past=0;
     double wait;
     public Hero() {
-        super(150, 250, 1, 33, 1, 4, 80, 100, 85,100,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\heros.png");
+        super(0, 250, 1, 33, 1, 4, 80, 100, 85,100,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\heros.png");
     }
 
     public void update(long time){

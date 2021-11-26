@@ -12,7 +12,7 @@ public class GameScene extends Scene {
     private staticThing heart;
     private int numberOfLives=3;
     private int updateCounter=0;
-    private Camera camera=new Camera(150,300);
+    private Camera camera=new Camera(300,300);
     public GameScene(Pane pane, double v, double v1) {
         super(pane, v, v1);
         this.background();
