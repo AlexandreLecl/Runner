@@ -12,7 +12,7 @@ public class GameScene extends Scene {
     private staticThing heart;
     private int numberOfLives=3;
     private int updateCounter=0;
-    private Camera camera=new Camera(0,300);
+    private Camera camera=new Camera(150,300);
     public GameScene(Pane pane, double v, double v1) {
         super(pane, v, v1);
         this.background();
@@ -55,6 +55,7 @@ public class GameScene extends Scene {
         public void handle(long time) {
             hero.update(time);
             camera.update(time,hero.getX());
+            hero.setX(hero.getX()-camera.getDx());
             update(time);
         }
     };

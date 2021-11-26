@@ -30,6 +30,8 @@ public abstract class AnimatedThing {
             this.offsety=offsety;
             this.w=w;
             this.h=h;
+            this.x=x;
+            this.y=y;
     }
 
     public double getX() {
