@@ -40,10 +40,9 @@ public class Camera {
         dt = (now - past) * Math.pow(10, -9);
         if(dt<1) {
             ax = km * (xhero - x) - fm * vx;
-            double dvx = ax * dt;
             dx = vx * dt;
             x += dx;
-            vx += dvx;
+            vx += ax * dt;
         }
         past=now;
         System.out.println("dx");
