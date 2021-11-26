@@ -1,9 +1,9 @@
 package runner;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.geometry.Rectangle2D;
 
 public class GameScene extends Scene {
     private staticThing right;
@@ -13,24 +13,35 @@ public class GameScene extends Scene {
     private int numberOfLives=3;
     private int updateCounter=0;
     private Camera camera=new Camera(300,300);
+    private Enemy enemy;
+
     public GameScene(Pane pane, double v, double v1) {
         super(pane, v, v1);
         this.background();
         this.placeHero();
+        this.placeEnemy();
         this.placeHearts();
         this.display(pane);
         timer.start();
+        this.setOnMouseClicked( (event)->{
+            System.out.println("Jump");
+            hero.setAttitude("jump up");
+        });
     }
 
     public void background(){
-         left=new staticThing(0,0,0,0,800,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
-         right=new staticThing(800,0,0,0,800,400,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\desert.png");
+         left=new staticThing(0,0,0,0,800,400,"file:desert.png");
+         right=new staticThing(800,0,0,0,800,400,"file:desert.png");
     }
     public void placeHero(){
         hero=new Hero();
     }
     public void placeHearts(){
-        heart=new staticThing(20,10,32*(3-numberOfLives),0,3*32,32,"C:\\Users\\alex_\\Documents\\cours\\ENSEA\\2ème année-ENSEA\\Java\\runner\\life.png");
+        heart=new staticThing(20,10,32*(3-numberOfLives),0,3*32,32,"file:life.png");
+    }
+
+    public void placeEnemy(){
+        enemy=new Enemy();
     }
 
     public void display(Pane pane){
@@ -38,6 +49,7 @@ public class GameScene extends Scene {
         pane.getChildren().add(left.getImageView());
         pane.getChildren().add(hero.getImageView());
         pane.getChildren().add(heart.getImageView());
+        pane.getChildren().add(enemy.getImageView());
     }
 
 
@@ -57,6 +69,7 @@ public class GameScene extends Scene {
             camera.update(time,hero.getX());
             hero.setX(hero.getX()-camera.getDx());
             update(time);
+            enemy.update(time);
         }
     };
 

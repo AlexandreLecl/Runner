@@ -8,7 +8,7 @@ public abstract class AnimatedThing {
     protected double x;
     protected double y;
     protected ImageView sprite;
-    protected int attitude;
+    protected String attitude;
     protected int index=1;
     protected int duration;
     protected int maxIndex;
@@ -18,10 +18,10 @@ public abstract class AnimatedThing {
     protected double offsety;
 
 
-    public AnimatedThing(double x,double y,int attitude,int duration,int index,int maxIndex,double w,double h,double offsetx,double offsety,String fileName){
+    public AnimatedThing(double x,double y,String attitude,int duration,int index,int maxIndex,double w,double h,double offsetx,double offsety,String fileName){
             Image spriteSheet = new Image(fileName);
             sprite = new ImageView(spriteSheet);
-            sprite.setViewport(new Rectangle2D(index*offsetx,attitude*offsety,w,h));
+            sprite.setViewport(new Rectangle2D(index*offsetx,offsety,w,h));
             sprite.setX(x);
             sprite.setY(y);
             this.maxIndex=maxIndex;
@@ -32,6 +32,7 @@ public abstract class AnimatedThing {
             this.h=h;
             this.x=x;
             this.y=y;
+            this.attitude=attitude;
     }
 
     public double getX() {
@@ -55,11 +56,11 @@ public abstract class AnimatedThing {
     }
 
 
-    public int getAttitude() {
+    public String getAttitude() {
         return attitude;
     }
 
-    public void setAttitude(int attitude) {
+    public void setAttitude(String attitude) {
         this.attitude = attitude;
     }
 

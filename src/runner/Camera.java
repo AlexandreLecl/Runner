@@ -36,6 +36,10 @@ public class Camera {
         return dx;
     }
 
+    public double getDt() {
+        return dt;
+    }
+
     public void update(long now, double xhero){
         dt = (now - past) * Math.pow(10, -9);
         if(dt<1) {
@@ -45,27 +49,11 @@ public class Camera {
             vx += ax * dt;
         }
         past=now;
-        System.out.println("dx");
-        System.out.println(dx);
-        System.out.println("x");
-        System.out.println(x);
-        System.out.println("vx");
-        System.out.println(vx);
-        System.out.println("ax");
-        System.out.println(ax);
-        System.out.println("xhero");
-        System.out.println(xhero);
-        System.out.println("dt");
-        System.out.println(dt);
-        System.out.println("\n");
-
-
     }
 
     @Override
     public String toString() {
         return "X: " + x + '\'' +
                 ", Y: " + y + '\'';
-
     }
 }
