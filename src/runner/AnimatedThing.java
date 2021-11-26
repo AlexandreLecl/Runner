@@ -80,10 +80,6 @@ public abstract class AnimatedThing {
         this.duration = duration;
     }
 
-    public int getMaxIndex() {
-        return maxIndex;
-    }
-
     public void setMaxIndex(int maxIndex) {
         this.maxIndex = maxIndex;
     }

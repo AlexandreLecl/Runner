@@ -6,7 +6,7 @@ public class Hero extends AnimatedThing{
     private long past=0;
     private double wait;
     private double vy=0;
-    private double ay=180;
+    private double ay=170;
     public Hero() {
         super(0, 250, "run", 33, 1, 4, 80, 100, 85,100,"file:heros.png");
     }
@@ -37,7 +37,7 @@ public class Hero extends AnimatedThing{
             if (y>250){
                 y=250;
                 attitude="run";
-                ay=180;
+                ay=170;
                 vy=0;
             }
         }
@@ -49,7 +49,7 @@ public class Hero extends AnimatedThing{
             if (y>250){
                 y=250;
                 attitude="run";
-                ay=180;
+                ay=170;
                 vy=0;
             }
         }

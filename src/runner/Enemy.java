@@ -28,6 +28,6 @@ public class Enemy extends AnimatedThing{
         }
         x-= vx*dt;
         sprite.setX(x);
-
     }
+
 }

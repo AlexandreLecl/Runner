@@ -29,6 +29,8 @@ public class GameScene extends Scene {
         });
     }
 
+
+
     public void background(){
          left=new staticThing(0,0,0,0,800,400,"file:desert.png");
          right=new staticThing(800,0,0,0,800,400,"file:desert.png");
@@ -59,6 +61,8 @@ public class GameScene extends Scene {
         left.getImageView().setViewport(new Rectangle2D(updateCounter, 0,800-updateCounter,400));
         right.getImageView().setViewport(new Rectangle2D(right.getX(), 0, updateCounter,400));
         right.getImageView().setX(800-updateCounter);
+
+        heart.getImageView().setViewport(new Rectangle2D(32*(3-numberOfLives),0,3*32,32));
     }
 
 
